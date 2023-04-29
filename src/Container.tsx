@@ -3,11 +3,26 @@ import "./Container.css";
 
 type Props = {}
 
-type State = {}
+type IContainer = {
+  input: string;
+  convertedString: string
+}
 
-export default class Container extends Component<Props, State> {
-  state = {}
-
+export default class Container extends Component<Props, IContainer> {
+  constructor(props:Props){
+    super(props)
+    this.state = {
+      input: '',
+      convertedString: ''
+    }
+  }
+  convert(){
+    const { input } = this.state;
+    if(input.trim() !== ''){
+      const split = JSON.stringify(input.split("\n"));
+      this.setState({...this.state, convertedString: split})
+    }
+  }
   render() {
     return (
       <div className='container'>
@@ -15,16 +30,31 @@ export default class Container extends Component<Props, State> {
           <div className='label-container'>
             <label>Paste list here</label>
           </div>
-          <div>
+          <div className='input-container'>
             <textarea
-              // rows={10}
               className='text-input'
+              value={this.state.input}
+              onChange={(e)=>{
+                 this.setState({input:e.target.value})
+              }}
             >
             </textarea>
+            <div>
+              <button onClick={()=>{this.convert()}}>Convert</button>
+            </div>
           </div>
         </div>
         <div className='right-output'>
-          Right
+          <div className='label-container'>
+            <label>Array output</label>
+          </div>
+          <div>
+              <textarea 
+                className='text-output'
+                readOnly={true}
+                value={this.state.convertedString}
+              ></textarea>
+          </div>
         </div>
       </div>
     )

@@ -10,8 +10,11 @@
   margin-top: 15px;
 }
 
+.input-container {
+}
+
 .text-input {
-  width: 100%;
+  width: 80%;
   height: 150px;
   margin: 5px 20px;
   box-sizing: border-box;
@@ -25,4 +28,16 @@
 
 .right-output {
   flex: 1;
+}
+
+.text-output {
+  width: 80%;
+  margin: 5px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  overflow: auto;
 }
