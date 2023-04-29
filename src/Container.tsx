@@ -12,7 +12,16 @@ export default class Container extends Component<Props, State> {
     return (
       <div className='container'>
         <div className='left-input'>
-          Left
+          <div className='label-container'>
+            <label>Paste list here</label>
+          </div>
+          <div>
+            <textarea
+              // rows={10}
+              className='text-input'
+            >
+            </textarea>
+          </div>
         </div>
         <div className='right-output'>
           Right
